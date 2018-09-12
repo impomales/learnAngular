@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -10,11 +10,20 @@ import { HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
   selectedHero: Hero;
 
-  heroes = HEROES;
+  heroes: Hero[];
 
-  constructor() {}
+  // defines prop and indentifies it as injection site.
+  constructor(private heroService: HeroService) {}
 
-  ngOnInit() {}
+  // on init get the heroes.
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  // method that calls the service.
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
