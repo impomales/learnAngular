@@ -9,9 +9,10 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
+  declarations: [AppComponent, HeroesComponent, HeroDetailComponent, MessagesComponent],
   imports: [
     BrowserModule,
     FormsModule,
